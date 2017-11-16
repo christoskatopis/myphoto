@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2><i class="fa fa-picture-o fa-fw"></i>{{ instance.title|escapejs}}</h2>
+<h3><i class="fa fa-upload fa-fw"></i>by {{ instance.user|escapejs }}</h3>
+<div class="watermark"><i class="fa fa-camera fa-2x"></i>my photo image</div><img src="{{instance.image.url}}" class='img-responsive'>
+{% if categories %}<h3 style="display:inline">Categories:{% for category in categories %}</h3><span class="label label-default">{{category|escapejs}} </span>{% endfor %}</p>{% endif %}
+<div class="like_count" id="heart-counter"><h3><i class="fa fa-heart fa-fw"></i> : {{ instance.likes }}</h3></div>
+{% if instance.user == user or  user.is_staff %}
+    <span class="pull-right"><form action="{{instance.get_absolute_url}}edit/" method="POST" style="display:inline">{% csrf_token %}<button type="submit" class="btn btn-default"><i class="fa fa-pencil-square-o fa-fw"></i>Edit</button></form><form action="{{instance.get_absolute_url}}delete/" method="GET" style="display:inline"><button type="submit" class="btn btn-success"><i class="fa fa-remove fa-fw"></i>Delete</button></form></span>
+{% endif %}
+ {% if instance.user != user %}
+   <form action="{{instance.get_absolute_url}}favorite" method="GET"><button type="submit" class="likes post-likes" id="heart-icon" data-photo-id="{{ instance.id }}" >
+   {% if user.is_authenticated %}
+   {% if liked %}
+   Favorited <i class="heart-shaped fa fa-heart" style="display: line-block"></i>
+   <i class="heart-shaped fa fa-heart-o" style="display: none"></i>
+   {% else %}
+   <i class="heart-shaped fa fa-heart" style="display: none"></i>
+   Favorite: <i class="heart-shaped fa fa-heart-o" style="display: line-block"></i>
+   {% endif %}
+    {% endif %}
+   </button>
+   </form>
+ {% endif %}
+ <p class="price" style="display:inline"><h3 style="display:inline"><i class="fa fa-money fa-fw"></i>: {{ instance.price }} €</p> 
+ {% if instance.user != user %}
+ </h3><form action="{% url 'cart:cart_add' instance.id %}" method="post" style="display:inline">{{ cart_product_form }}
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart fa-fw"></i>Add to cart</button>
+</form>{% endif %}
+<br>
+<hr>
+{% if instance.comments %}
+{% for comment in instance.comments.all %}
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>  
+        <strong>{{ comment.author.username }}<i class="fa fa-comment fa-fw"></i></strong>
+        <p>{{ comment.text|linebreaks|escapejs}}</p> {% if comment.author == user or user.is_staff %}<a href="{{instance.get_absolute_url}}{{comment.pk}}/delete_comment" class="btn btn-default"><i class="fa fa-trash-o fa-fw"></i></a>{% endif %}<br>
+    </div>
+{% endfor %}
+    <p></p>
+{% endif %}
+ {% if user.is_authenticated %}
+<h2>Write your comment<i class="fa fa-comment fa-fw"></i></h2>
+<form action="{{instance.get_absolute_url}}add_comment/" method="POST">{{ commentform.as_p }}{% csrf_token %}<button type="submit" class="btn btn-default"><i class="fa fa-quote-left fa-fw"></i>Add Comment<i class="fa fa-quote-right fa-fw"></i></button></form>{% endif %}
+
+
+{% endblock %}

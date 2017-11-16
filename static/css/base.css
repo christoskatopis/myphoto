@@ -1,0 +1,155 @@
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size:60px;
+}
+
+.title {
+	color:#fff;
+	padding-left:38%;
+}
+
+.container {
+	margin-top:40px;
+	border-color:#ccc;
+	border-radius:0.8px;
+	border-right-style:solid;
+	border-bottom-style:solid;
+	border-left-style:solid;
+	background-color:#fff;
+	opacity:0.9;
+}
+
+.watermark {
+ position:absolute;
+ top:auto;
+ bottom:auto;
+ left:auto;
+ right:auto;
+ opacity:0.9;
+ z-index:99;
+ color:#fff;
+ font-size:40px;
+}
+
+.small{
+ font-size:10px;
+}
+
+.contact-info{
+  border-radius:1px;
+  border-left-style:solid;
+  opacity:0.5;
+  letter-spacing:1px;
+}
+
+
+.contact-info > h4 {
+  display:inline;
+}
+
+
+.footer{
+	padding-top:20px;
+	position:relative;
+	text-align:center;
+	font-size:10px;
+	letter-spacing:1px;
+	color:#e6e6e6;
+}
+
+.search {
+	margin-top:10px;
+}
+
+.uploader{
+	color:#fff;
+}
+.thumbnail .caption > a{
+	color:#fff;
+	letter-spacing:1px;
+	font-size:16px;
+}
+
+body { font-family: 'Quicksand', sans-serif;
+ background-image:url(../bg.jpg);
+ background-size:cover;
+ background-repeat:no-repeat;
+ padding-top:10px;
+ }
+
+.btn-outline-info : hover {
+	background-color:#000;
+	color:#fff;
+}
+
+
+button.likes {
+  padding: 0;
+}
+
+.navbar-main{
+	height:50px;
+	width:250px;
+}
+
+/*Like Button*/
+
+.heart-particle-box {
+  position: relative;
+}
+
+#heart-icon {
+  color: #f55567;
+  font-size: 16px;
+  border: 1px;
+  opacity: 1;
+  background: none;
+  transition: .3s ease-in-out;
+}
+
+#heart-icon:hover {
+  border: 1px;
+  background: none;
+  cursor: pointer;
+  transition: .5s ease-in-out;
+}
+
+#heart-icon:focus {
+  outline: 0;
+  border: 1px;
+}
+
+#heart-counter {
+  font-weight: 700;
+  font-size: 0.8em;
+  opacity: 1;
+  font-size: 13px;
+  color: #f55567;
+}
+
+.heart-particle {
+  padding: 26px;
+  opacity: 1;
+  position: absolute;
+  display: none;
+}
+
+.heart-particle i {
+  position: absolute;
+  margin-left: 52px;
+  opacity: .4;
+  font-size: 16px;
+}
+
+.heart-particle-col {
+  color: #f55567;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+
+.form-control .form-inline  > input {
+	margin-top:10px;
+}

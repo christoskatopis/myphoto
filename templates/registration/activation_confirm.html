@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% if validlink %}
+<h2><i class="fa fa-user fa-fw"></i>activation complete</h2>
+<p>You successfuly activated your account. Click the button below to log in</p>
+<a href="{%url 'auth:login' %}" class="btn btn-default"><i class="fa fa-sign-in fa-fw"></i>Log In</a>
+{% else %}
+<h2><i class="fa fa-user fa-fw"></i>account activation unsuccessful</h2>
+<p>{{error_message}}</p>
+{% endif %}
+{% endblock %}

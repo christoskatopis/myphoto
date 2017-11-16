@@ -1,0 +1,13 @@
+{% autoescape off %}
+You 're receiving this e-mail because you created a myphoto account.
+
+Please go to the following page to activate your myphoto account:
+{% block reset_link %}
+{{protocol}}://{{domain}}{% url 'auth:activation' uidb64=uid token=token %}
+{% endblock %}
+
+-----------------------------------------
+Thank your for using myphoto,
+the myphoto team
+
+{% endautoescape %}

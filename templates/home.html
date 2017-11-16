@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+|{% block content %}
+<div class="col-sm-9 col-sm-offset-3">
+<h1><i class="fa fa-camera fa-fw"> </i>{{title}}</h1></div>
+<div class="col-m-8 col-sm-offset-4">
+<h2>upload | buy | sell</h2> 
+<br/>
+<nav class="navbar navbar-inverse navbar-main">{% include "searchbar.html" %}</nav>
+<br/><div class="col-sm-6 col-sm-offset-6 contact-info"><h3><i class="fa fa-info fa-lg"></i> contact us:</h3><h4><i class="fa fa-envelope fa-fw"></i> info@myphoto.gr</h4><br><h4><i class="fa fa-phone fa-fw"></i> [+30]6999999999</h4></div>
+<h2><div class="col-sm-6"><a href="{% url 'auth:create_account' %}" class="btn btn-default"><i class="fa fa-user fa-fw"></i>Sign up</a> or <a href="{% url 'auth:login' %}" class="btn btn-default"><i class="fa fa-sign-in fa-fw"></i>Log in</a></div>
+</div>
+{% endblock %}

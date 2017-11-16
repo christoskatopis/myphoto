@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+<h1><i class="fa fa-sign-in fa-fw"></i>log in</h1>
+
+<form method='POST' action='' enctype='multipart/form-data' autocomplete='off'>{% csrf_token %}
+{{ form.as_p }}
+<button  type='submit' class='btn btn-default'><i class="fa fa-sign-in fa-fw"></i>Log In</i></button><br>
+<p><i class="fa fa-user fa-fw"></i>Don't have an account? Click <a href="{% url 'auth:create_account' %}">here</a> to sign up</p>
+<p><i class="fa fa-lock fa-fw"></i>Forgot your password? Click <a href="{% url 'auth:password_reset' %}">here</a> to change it</p>
+</form>
+</div>
+
+{% endblock content %}

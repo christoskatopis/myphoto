@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><i class="fa fa-times fa-fw"></i>login failed</h2>
+{% if blocked %}
+<p>Your don't have the right to log in in myphoto. Please contact the myphoto team.</p>
+{% else %}
+<p>You have exceeded the maximum number of login attempts.Please wait {{time}} seconds before trying again.</p>
+{% endif %}
+{% endblock %}
